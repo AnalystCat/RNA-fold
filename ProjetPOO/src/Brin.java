@@ -37,7 +37,7 @@ public class Brin {
         //Ferme BufferedReader
         in.close();
         sc.close();
-
+        System.out.println(url);
         System.out.println(inputLine);
 
         return "";
