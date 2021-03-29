@@ -9,6 +9,7 @@ public class Brin {
     String sequence;
     String dotFormat;
     int index;
+    
 
     public static String parserStockholmToDot() throws IOException {
         Scanner sc = new Scanner(System.in);
