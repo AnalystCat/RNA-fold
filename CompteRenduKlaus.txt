@@ -1,0 +1,18 @@
+Compte rendu de Klaus:
+
+29/03/2021:
+
+J'ai essaye de installer intellij sur ma machine virtuelle, mais quand je l'utilisais, ete tres lent. De plus Virginie aussi avait du mal avec, on a donc decider de plutot 
+utiliser Eclipse sur nos windows pour coder. J'ai aussi expliquer a virginie comment faire fonctionner git avec Eclipse. Ca marchait pas trop, jusqu'a ça marche.
+
+Puis niveau code on a decouvert qu'on devait faire des requetes a la base de données rfam, ou en mettant le nom d'une famille style RF00360 (je la connais par coeur car j'
+ai pas arrete de la taper audj) on peut avoir le fichier stockolm correzspondant.
+
+Dans les 2 dernieres lignes de ce fichier il a une sorte de format de paretensage, mais qui devra etre converti apres en paresentage qu'on peut utilise, ainsi qu
+la sequence concensus de la famille.
+
+J'ai appris donc a faire des requetes sur java et a parse l'information, que j'ai essuite manipule grace au string. Maitenant j'ai une fonction qui 
+demande en iput le nom de la famille et affiche le (----) et sequence. Virginie a crée les classes brin qu'on va utiliser. 
+
+J'aimerai terminer demain en faisant que la fonction prend en argument le nom et renvoit un objet de la classe brin, avec le parentasage et sequence.
+Aussi peut etre regarde plus du cote swing, coder qql bouton, voire que ça print le resultat de la focntion precedente. 
