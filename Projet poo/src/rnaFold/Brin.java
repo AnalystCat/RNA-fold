@@ -7,7 +7,7 @@ import java.net.URL;
 import java.util.Scanner;
 
 public class Brin {
-    String sequence;
+    String sequence; 
     String dotFormat;
     int index;
 
