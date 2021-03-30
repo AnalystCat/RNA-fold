@@ -1,8 +1,7 @@
 public class Nucleotide {
-    String lettre;
-    int position;
-    int brinIndex;
-    
+    private String lettre;
+    private int position;
+    private int brinIndex;
 
     public Nucleotide(String l, int pos, int index) {
         this.lettre = l;

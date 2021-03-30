@@ -1,62 +1,97 @@
+import java.util.*;
 import java.io.*;
 import java.net.*;
 
 
 public class Brin {
-    String sequence;
-    String Parentasage;
-    int index;
+    private String sequence;
+    private String parenthesage;
+    private static int index = 0; // à garder ?
     
-    public Brin(String sequence, String parentasage, int index) {
+    public Brin(String sequence, String parenthesage) {
         this.sequence = sequence;
-        this.Parentasage = parentasage;
-        this.index = index;
+        this.parenthesage = parenthesage;
+        index++;
     }
 
-    public static Brin GetDataRfam(int index, String rFamName  ) throws IOException {
-        
-
-    	
-    	
-    	String parentasage = "" ;
+    /**
+     * creates an object of type Brin with its sequence and its "parenthesis format"
+     * @param rFamName name of the chosen family
+     * @return donnee of type Brin
+     * @throws IOException
+     */
+    public static Brin GetDataRfam(String rFamName) throws IOException {
+    	String parenthesage = "";
     	String sequence = "";
     	
         URL url = new URL("https://rfam.org/family/"+ rFamName +"/alignment/stockholm");
-        BufferedReader in = new BufferedReader(
-        new InputStreamReader(url.openStream()));
-
+        BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
         String inputLine;
        
         while ((inputLine = in.readLine()) != null) {
         	if(inputLine.startsWith("#=GC SS_cons")) {
-        		
         		inputLine = inputLine.substring(13).replaceAll("[<{]", "(").replace("[", "(");
         		inputLine = inputLine.replaceAll("[>}]", ")").replace("]", ")");
-        		parentasage = inputLine.replaceAll("[;:_]", "-").replaceAll("[ .]","");
-        		
+        		parenthesage = inputLine.replaceAll("[;:_]", "-").replaceAll("[ .]", "");
         	}
         	if(inputLine.startsWith("#=GC RF")) {
-        		
-        		sequence = inputLine.substring(8).replaceAll("[ .]","").toUpperCase();
+        		sequence = inputLine.substring(8).replaceAll("[ .]", "").toUpperCase();
         	}
-        
         }
+        
         in.close();
-    	Brin donne = new Brin(sequence, parentasage, index);
-    	
-        return donne;
+        
+    	Brin donnee = new Brin(sequence, parenthesage);
+        return donnee;
     }
-
+    
+    /**
+     * chooses a random family name in the Rfam database
+     * @param f name of the data file
+     * @return result name of a random family
+     * @throws FileNotFoundException
+     */
+    @SuppressWarnings("resource")
+	public static String choose(File f) throws FileNotFoundException {
+		String result = null;
+		Random rand = new Random();
+		int n = 0;
+		Scanner sc;
+     
+		for(sc = new Scanner(f); sc.hasNext(); ) {
+			++n;
+			String line = sc.nextLine();
+			if(rand.nextInt(n) == 0)
+				result = line;         
+		}
+     
+		sc.close();
+     
+		return result;      
+	}
 
 	public static void main(String[] args) {
-        System.out.println("hello");
         try {
-        	Brin test =GetDataRfam(1,"RF00360");
-        	System.out.println(test.Parentasage);
+        	Brin test = GetDataRfam("RF00360");
+        	System.out.println(test.parenthesage);
         	System.out.println(test.sequence);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+        
+        String s = "";
+		try {
+			s = choose(new File("data.txt"));
+			System.out.println(s);
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		}
+        try {
+        	Brin test2 = GetDataRfam(s);
+        	System.out.println(test2.parenthesage);
+        	System.out.println(test2.sequence);
+        } catch (IOException e) {
+        	e.printStackTrace();
 		}
     }
 }
