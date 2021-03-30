@@ -1,6 +1,7 @@
 import java.io.*;
 import java.net.*;
 
+
 public class Brin {
     String sequence;
     String Parentasage;
@@ -27,8 +28,6 @@ public class Brin {
         String inputLine;
        
         while ((inputLine = in.readLine()) != null) {
-        	
-        	String  aaa;
         	if(inputLine.startsWith("#=GC SS_cons")) {
         		
         		inputLine = inputLine.substring(13).replaceAll("[<{]", "(").replace("[", "(");
@@ -52,7 +51,7 @@ public class Brin {
 	public static void main(String[] args) {
         System.out.println("hello");
         try {
-        	Brin test =GetDataRfam(1,"RF00360");
+        	Brin test =GetDataRfam(1);
         	System.out.println(test.Parentasage);
         	System.out.println(test.sequence);
 		} catch (IOException e) {
