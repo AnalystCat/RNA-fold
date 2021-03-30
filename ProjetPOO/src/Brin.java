@@ -51,7 +51,7 @@ public class Brin {
 	public static void main(String[] args) {
         System.out.println("hello");
         try {
-        	Brin test =GetDataRfam(1);
+        	Brin test =GetDataRfam(1,"RF00360");
         	System.out.println(test.Parentasage);
         	System.out.println(test.sequence);
 		} catch (IOException e) {
