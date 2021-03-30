@@ -2,7 +2,6 @@ import java.util.*;
 import java.io.*;
 import java.net.*;
 
-
 public class Brin {
     private String sequence;
     private String parenthesage;
@@ -20,7 +19,7 @@ public class Brin {
      * @return donnee of type Brin
      * @throws IOException
      */
-    public static Brin GetDataRfam(String rFamName) throws IOException {
+    public static Brin getDataRfam(String rFamName) throws IOException {
     	String parenthesage = "";
     	String sequence = "";
     	
@@ -72,7 +71,7 @@ public class Brin {
 
 	public static void main(String[] args) {
         try {
-        	Brin test = GetDataRfam("RF00360");
+        	Brin test = getDataRfam("RF00360");
         	System.out.println(test.parenthesage);
         	System.out.println(test.sequence);
 		} catch (IOException e) {
@@ -87,7 +86,7 @@ public class Brin {
 			e1.printStackTrace();
 		}
         try {
-        	Brin test2 = GetDataRfam(s);
+        	Brin test2 = getDataRfam(s);
         	System.out.println(test2.parenthesage);
         	System.out.println(test2.sequence);
         } catch (IOException e) {
