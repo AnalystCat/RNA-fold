@@ -7,7 +7,6 @@ public class Brin {
     private String parenthesage;
     private static int index = 0; // à garder ?
     
-    
     public Brin(String sequence, String parenthesage) {
         this.sequence = sequence;
         this.parenthesage = parenthesage;
@@ -70,7 +69,7 @@ public class Brin {
 		return result;      
 	}
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
         try {
         	Brin test = getDataRfam("RF00360");
         	System.out.println(test.parenthesage);
@@ -85,5 +84,5 @@ public class Brin {
         } catch (IOException e) {
         	e.printStackTrace();
 		}
-    }
+    }*/
 }
