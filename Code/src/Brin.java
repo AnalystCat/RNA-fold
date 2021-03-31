@@ -7,6 +7,7 @@ public class Brin {
     private String parenthesage;
     private static int index = 0; // à garder ?
     
+    
     public Brin(String sequence, String parenthesage) {
         this.sequence = sequence;
         this.parenthesage = parenthesage;
