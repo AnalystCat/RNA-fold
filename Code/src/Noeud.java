@@ -1,16 +1,10 @@
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class Noeud {
-	private Noeud pere;
 	private ArrayList<Noeud> fils;
-	
-	// for root only (no father)
+
 	public Noeud() {
-        this.fils = new ArrayList<>();
-    }
-	
-	public Noeud(Noeud pere) {
-		this.pere = pere;
         this.fils = new ArrayList<>();
     }
 	
@@ -21,24 +15,38 @@ public class Noeud {
 	// en cours
 	public Noeud convertToTree(String parenthesage) {
 		String[] elements = parenthesage.split("");
-		if (elements != null) {
-			Noeud n = new Noeud();
-			for(int i=0; i<parenthesage.length(); i++) {
-				if(elements[i] == "(") {
-					
-				}
-				if(elements[i] == "-") {
-					
-				}
+		System.out.println(elements);
+		Stack<Noeud> pile = new Stack<Noeud>();
+		Noeud pere = new Noeud();
+		Noeud racine = new Noeud();
+		pere = racine;
+		
+		for(int i=0; i<parenthesage.length(); i++) {
+		 	System.out.println(elements[i]);
+			/*if(elements[i] == "(") {
+				Noeud n = new Noeud();
+				pile.push(n);
+				System.out.println("(");
+				pere = n;
 			}
-			return n;
+			else if(elements[i] == "-") {
+				Noeud n = new Noeud();
+				pile.push(n);
+				System.out.println("-");
+				pere.ajoutFils(n);
+				pile.pop();
+			}
+			// elements[i] == ")"
+			else {
+				pile.pop();
+				System.out.println(")");
+			}*/
 		}
-		return null;
+		return racine;
 	}
 	
 	public static void main(String[] args) {
 		Noeud racine = new Noeud();
-		Noeud f1 = new Noeud(racine);
-		racine.ajoutFils(f1);
+		racine.convertToTree("((((((---------------------------------------------------------------------------------------------------------))))))");
 	}
 }
