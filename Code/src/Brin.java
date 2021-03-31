@@ -31,7 +31,7 @@ public class Brin {
         	if(inputLine.startsWith("#=GC SS_cons")) {
         		inputLine = inputLine.substring(13).replaceAll("[<{]", "(").replace("[", "(");
         		inputLine = inputLine.replaceAll("[>}]", ")").replace("]", ")");
-        		parenthesage = inputLine.replaceAll("[;:_]", "-").replaceAll("[ .]", "");
+        		parenthesage = inputLine.replaceAll("[;:,_]", "-").replaceAll("[ .]", "");
         	}
         	if(inputLine.startsWith("#=GC RF")) {
         		sequence = inputLine.substring(8).replaceAll("[ .]", "").toUpperCase();
@@ -46,12 +46,12 @@ public class Brin {
     
     /**
      * chooses a random family name in the Rfam database
-     * @param f name of the data file
      * @return result name of a random family
      * @throws FileNotFoundException
      */
     @SuppressWarnings("resource")
-	public static String choose(File f) throws FileNotFoundException {
+	public static String RandomRfam() throws FileNotFoundException {
+    	File f = new File("data/data.txt");
 		String result = null;
 		Random rand = new Random();
 		int n = 0;
@@ -77,16 +77,8 @@ public class Brin {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-        
-        String s = "";
-		try {
-			s = choose(new File("data.txt"));
-			System.out.println(s);
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
-		}
         try {
-        	Brin test2 = getDataRfam(s);
+        	Brin test2 = getDataRfam(RandomRfam());
         	System.out.println(test2.parenthesage);
         	System.out.println(test2.sequence);
         } catch (IOException e) {
