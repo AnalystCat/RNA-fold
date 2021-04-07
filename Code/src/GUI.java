@@ -5,8 +5,7 @@ public class GUI {
 	
 	public GUI() {
 		JFrame frame = new JFrame();
-		JPanel card1 = new JPanel();
-		JPanel card2 = new JPanel();
+
 		JPanel panel = new JPanel(new CardLayout());
 		
 		panel.setBorder(BorderFactory.createEmptyBorder(20,50,0,50)); 
@@ -23,7 +22,7 @@ public class GUI {
 		panel.add(image);
 		
 		JMenu menu = new JMenu("A Menu");
-
+		menu.setFont(new Font("Myriad Pro", Font.PLAIN, 12));
 		menu.getAccessibleContext().setAccessibleDescription("The only menu in this program that has menu items");
 		menuBar.add(menu);
 		

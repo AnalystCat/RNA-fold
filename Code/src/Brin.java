@@ -69,7 +69,7 @@ public class Brin {
 		return result;      
 	}
 
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
         try {
         	Brin test = getDataRfam("RF00360");
         	System.out.println(test.parenthesage);
@@ -84,5 +84,5 @@ public class Brin {
         } catch (IOException e) {
         	e.printStackTrace();
 		}
-    }*/
+    }
 }

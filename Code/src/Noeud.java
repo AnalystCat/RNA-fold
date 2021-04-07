@@ -82,47 +82,45 @@ public class Noeud {
 				}
 			}		
 		}
-		return true;
+		else if(pattern.fils.isEmpty() && target.fils.isEmpty()) return true;
+		return false;
 	}
 	
 	public static Noeud comparaison(Noeud pattern, Noeud target) {
+		Noeud maxsubtree = new Noeud();
 		Noeud subtree = new Noeud();
+		
 		if(egalite(pattern, target)) {
-			subtree = pattern;
+			maxsubtree = pattern;
 		}
 		
 		if(!pattern.fils.isEmpty()) {
-			for(int i=0; i<pattern.fils.size();) {
-				
-				
-				
+			for(int i=0; i<pattern.fils.size(); i++) {
 				if(!target.fils.isEmpty()) {
-			    	for(int j=0; j<target.fils.size();) {
-			    		if(nombreNoeuds(subtree)< nombreNoeuds(comparaison(pattern.fils.get(i), target.fils.get(j))) ){
-							
-							//subtree 
+			    	for(int j=0; j<target.fils.size(); j++) {
+			    		
+			    		subtree = comparaison(pattern.fils.get(i), target.fils.get(j));
+			    		if(nombreNoeuds(maxsubtree) < nombreNoeuds(subtree)) {
+			    			maxsubtree = subtree;
 						}
 					}
 				}
 			}
 		}
-		return subtree;
+		return maxsubtree;
 	}
-	
-	/*
-	 * if(egalite(pattern.fils.get(i), target.fils.get(i))) {
-			    			subtree = pattern.fils.get(i); 
-	   }
-	 */
 	
 	public static void main(String[] args) {
 		Noeud racine = new Noeud();
 		Noeud racine2 = new Noeud();
 		Noeud racine3 = new Noeud();
+		Noeud res = new Noeud();
 		racine = convertToTree("--(--((--))-)");
-		racine2 = convertToTree("--(--((--))-)");
-		racine3 = convertToTree("(-(--)-)");
-		System.out.println(egalite(racine, racine2));
-		System.out.println(egalite(racine, racine3));
+		racine2 = convertToTree("-----(--((--))-)");
+		racine3 = convertToTree("--(--((--))-)");
+		System.out.println("ok1");
+		res = comparaison(racine3, racine);
+		System.out.println("ok2");
+		System.out.println(egalite(res, racine));
 	}
 }
