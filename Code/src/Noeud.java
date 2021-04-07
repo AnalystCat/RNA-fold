@@ -56,7 +56,7 @@ public class Noeud {
 	 */
 	public static int nombreNoeuds(Noeud racine) {
 		int nb = 0;
-		if (!racine.fils.isEmpty()) {
+		if(!racine.fils.isEmpty()) {
 			for(int i=0; i<racine.fils.size(); i++) {
 				nb++;
 				nb += nombreNoeuds(racine.fils.get(i));
@@ -66,13 +66,63 @@ public class Noeud {
 		return 0;
 	}
 	
+	/**
+	 * tests if two trees are equals (same number of children for each node)
+	 * @param pattern is the root of the tree we want to compare to the target tree
+	 * @param target root of the target tree
+	 * @return true if they are the same, false if they are different
+	 */
+	public static boolean egalite(Noeud pattern, Noeud target) {
+		if(!pattern.fils.isEmpty() && !target.fils.isEmpty()) {
+			for(int i=0; i<pattern.fils.size();) {
+				if(nombreNoeuds(pattern)==nombreNoeuds(target) && egalite(pattern.fils.get(i), target.fils.get(i))) {
+					return true;
+				} else {
+					return false;
+				}
+			}		
+		}
+		return true;
+	}
+	
+	public static Noeud comparaison(Noeud pattern, Noeud target) {
+		Noeud subtree = new Noeud();
+		if(egalite(pattern, target)) {
+			subtree = pattern;
+		}
+		
+		if(!pattern.fils.isEmpty()) {
+			for(int i=0; i<pattern.fils.size();) {
+				
+				
+				
+				if(!target.fils.isEmpty()) {
+			    	for(int j=0; j<target.fils.size();) {
+			    		if(nombreNoeuds(subtree)< nombreNoeuds(comparaison(pattern.fils.get(i), target.fils.get(j))) ){
+							
+							//subtree 
+						}
+					}
+				}
+			}
+		}
+		return subtree;
+	}
+	
+	/*
+	 * if(egalite(pattern.fils.get(i), target.fils.get(i))) {
+			    			subtree = pattern.fils.get(i); 
+	   }
+	 */
+	
 	public static void main(String[] args) {
-		System.out.println("ok");
 		Noeud racine = new Noeud();
-		Noeud n1 = new Noeud();
-		racine.ajoutFils(n1);
-		racine.ajoutFils(n1);
+		Noeud racine2 = new Noeud();
+		Noeud racine3 = new Noeud();
 		racine = convertToTree("--(--((--))-)");
-		System.out.println("res = "+ nombreNoeuds(racine));
+		racine2 = convertToTree("--(--((--))-)");
+		racine3 = convertToTree("(-(--)-)");
+		System.out.println(egalite(racine, racine2));
+		System.out.println(egalite(racine, racine3));
 	}
 }
