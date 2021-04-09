@@ -50,6 +50,33 @@ public class Noeud {
 	}
 	
 	/**
+	 * 
+	 * @param racine is the root of the subtree
+	 * @return 
+	 */
+	public static String convertToDashBracketInter(Noeud racine) {
+		String parenthesage = "";
+		if(!racine.fils.isEmpty()) {
+			parenthesage += "(";
+			for(int i=0; i<racine.fils.size(); i++) {
+				parenthesage += convertToDashBracketInter(racine.fils.get(i));
+			}
+			return parenthesage + ")";
+		}
+		return "-";
+	}
+	
+	/**
+	 * 
+	 * @param racine is the root of the tree
+	 * @return final Dash Bracket format
+	 */
+	public static String convertToDashBracket(Noeud racine) {
+		String parenthesage = convertToDashBracketInter(racine);
+		return parenthesage.substring(1, parenthesage.length() - 1);
+	}
+	
+	/**
 	 * traversal of the tree, every node is counted and then the total number is returned
 	 * @param racine is the root of the subtree
 	 * @return number of nodes in the subtree
@@ -86,6 +113,12 @@ public class Noeud {
 		return false;
 	}
 	
+	/**
+	 * give largest common subtree between two given tree
+	 * @param pattern is the root of the tree we want to compare to the target tree
+	 * @param target root of the target tree
+	 * @return the root of the subtree
+	 */
 	public static Noeud comparaison(Noeud pattern, Noeud target) {
 		Noeud maxsubtree = new Noeud();
 		Noeud subtree = new Noeud();
@@ -98,7 +131,6 @@ public class Noeud {
 			for(int i=0; i<pattern.fils.size(); i++) {
 				if(!target.fils.isEmpty()) {
 			    	for(int j=0; j<target.fils.size(); j++) {
-			    		
 			    		subtree = comparaison(pattern.fils.get(i), target.fils.get(j));
 			    		if(nombreNoeuds(maxsubtree) < nombreNoeuds(subtree)) {
 			    			maxsubtree = subtree;
@@ -115,12 +147,20 @@ public class Noeud {
 		Noeud racine2 = new Noeud();
 		Noeud racine3 = new Noeud();
 		Noeud res = new Noeud();
+		
 		racine = convertToTree("--(--((--))-)");
 		racine2 = convertToTree("-----(--((--))-)");
 		racine3 = convertToTree("--(--((--))-)");
-		System.out.println("ok1");
+		
+		System.out.println(convertToDashBracket(racine));
+		
+		System.out.println(convertToDashBracket(racine2));
+
+		System.out.println(convertToDashBracket(comparaison(racine2, racine)));
+		
+		/*System.out.println("ok1");
 		res = comparaison(racine3, racine);
 		System.out.println("ok2");
-		System.out.println(egalite(res, racine));
+		System.out.println(egalite(res, racine));*/
 	}
 }
