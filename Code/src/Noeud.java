@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 public class Noeud {
-	private ArrayList<Noeud> fils;
+	ArrayList<Noeud> fils;
 
 	public Noeud() {
         this.fils = new ArrayList<>();

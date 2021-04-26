@@ -3,14 +3,14 @@ import java.io.*;
 import java.net.*;
 
 public class Brin {
-    private String sequence;
-    private String parenthesage;
-    private static int index = 0; // à garder ?
+    String sequence;
+    String parenthesage;
+    
     
     public Brin(String sequence, String parenthesage) {
         this.sequence = sequence;
         this.parenthesage = parenthesage;
-        index++;
+        
     }
 
     /**
