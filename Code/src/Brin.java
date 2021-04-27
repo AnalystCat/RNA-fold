@@ -19,7 +19,7 @@ public class Brin {
      * @return donnee of type Brin
      * @throws IOException
      */
-    public static  Brin getDataRfam(String rFamName) throws IOException {
+    public static Brin getDataRfam(String rFamName) throws IOException {
     	String parenthesage = "";
     	String sequence = "";
     	
@@ -69,20 +69,20 @@ public class Brin {
 		return result;      
 	}
 
-	public  void main(String[] args) {
-        try {
-        	Brin test = getDataRfam("RF00360");
-        	System.out.println(test.parenthesage);
-        	System.out.println(test.sequence);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-        try {
-        	Brin test2 = getDataRfam(RandomRfam());
-        	System.out.println(test2.parenthesage);
-        	System.out.println(test2.sequence);
-        } catch (IOException e) {
-        	e.printStackTrace();
-		}
-    }
+//	public  void main(String[] args) {
+//        try {
+//        	Brin test = getDataRfam("RF00360");
+//        	System.out.println(test.parenthesage);
+//        	System.out.println(test.sequence);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//        try {
+//        	Brin test2 = getDataRfam(RandomRfam());
+//        	System.out.println(test2.parenthesage);
+//        	System.out.println(test2.sequence);
+//        } catch (IOException e) {
+//        	e.printStackTrace();
+//		}
+//    }
 }

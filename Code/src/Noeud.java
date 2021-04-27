@@ -73,7 +73,12 @@ public class Noeud {
 	 */
 	public static String convertToDashBracket(Noeud racine) {
 		String parenthesage = convertToDashBracketInter(racine);
-		return parenthesage.substring(1, parenthesage.length() - 1);
+		if (parenthesage.length() == 1) {
+			return "une seule feuille :(";
+		}
+		else {
+			return parenthesage.substring(1, parenthesage.length() - 1);
+		}
 	}
 	
 	/**
@@ -140,26 +145,26 @@ public class Noeud {
 			}
 		}
 		return maxsubtree;
-	}
+	}}
 	
-	public static void main(String[] args) {
-		Noeud racine = new Noeud();
-		Noeud racine2 = new Noeud();
-
-		
-		racine = convertToTree("--(--((--))-)");
-		racine2 = convertToTree("-----(--((--))-)");
-		
-		
-		System.out.println(convertToDashBracket(racine));
-		
-		System.out.println(convertToDashBracket(racine2));
-
-		System.out.println(convertToDashBracket(comparaison(racine2, racine)));
-		
-		/*System.out.println("ok1");
-		res = comparaison(racine3, racine);
-		System.out.println("ok2");
-		System.out.println(egalite(res, racine));*/
-	}
-}
+//	public static void main(String[] args) {
+//		Noeud racine = new Noeud();
+//		Noeud racine2 = new Noeud();
+//
+//		
+//		racine = convertToTree("--(--((--))-)");
+//		racine2 = convertToTree("-----(--((--))-)");
+//		
+//		
+//		System.out.println(convertToDashBracket(racine));
+//		
+//		System.out.println(convertToDashBracket(racine2));
+//
+//		System.out.println(convertToDashBracket(comparaison(racine2, racine)));
+//		
+//		/*System.out.println("ok1");
+//		res = comparaison(racine3, racine);
+//		System.out.println("ok2");
+//		System.out.println(egalite(res, racine));*/
+//	}
+//}
