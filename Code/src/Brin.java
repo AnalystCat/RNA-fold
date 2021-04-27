@@ -69,20 +69,21 @@ public class Brin {
 		return result;      
 	}
 
-//	public  void main(String[] args) {
-//        try {
-//        	Brin test = getDataRfam("RF00360");
-//        	System.out.println(test.parenthesage);
-//        	System.out.println(test.sequence);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//        try {
-//        	Brin test2 = getDataRfam(RandomRfam());
-//        	System.out.println(test2.parenthesage);
-//        	System.out.println(test2.sequence);
-//        } catch (IOException e) {
-//        	e.printStackTrace();
-//		}
-//    }
+	public  void main(String[] args) {
+       try {
+       	Brin test = getDataRfam("RF00011");
+       	System.out.println(test.parenthesage);
+       	System.out.println(test.sequence);
+    	} catch (IOException e) {
+			e.printStackTrace();
+		}
+        try {
+        	Brin test2 = getDataRfam("RF00053");
+        	System.out.println(test2.parenthesage);
+        	System.out.println(test2.sequence);
+        	
+        } catch (IOException e) {
+        	e.printStackTrace();
+		}
+    }
 }

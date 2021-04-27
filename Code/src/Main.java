@@ -103,13 +103,11 @@ public class Main  {
 	    	
 	    	System.out.println("Donner votre 1e Rfam index : ");
 	    	
-	    	String rfam1 = myObj.nextLine();
 
 	    	System.out.println("Donner votre 2e Rfam index : ");
-	    	String rfam2 = myObj.nextLine();
 	    	
-	    	rfam1 = "RF00018";
-	    	rfam1 = "RF02400";
+	    	String rfam1 = "RF00053";
+	    	String rfam2 = "RF00333";
 	    	
 	    	Brin test1 = new Brin("","");
 			try {
