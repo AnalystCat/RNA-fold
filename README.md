@@ -19,7 +19,7 @@ Ca aurait été beau hein ?
 Bah comme on a passé trop de temps dessus pour rien, on a fait un menu au terminal servant de démo des fonctions codées... 
 
 Voici à quoi ça ressemble : 
-
+![enter image description here](https://github.com/AnalystCat/RNA-fold/blob/main/Code/ressource/demo.png)
 
 ## Ce qu'on a retenu : **LE GUI AVEC JAVA C'EST PAS FASTOCHE** (et les piles et la récursivité c'est drôle en fait)
 
