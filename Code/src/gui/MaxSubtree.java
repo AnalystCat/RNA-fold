@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
@@ -15,6 +16,11 @@ import javax.swing.JScrollBar;
 public class MaxSubtree {
 
 	private JFrame frame;
+	public String tree;
+	public String Seq1;
+	public String Seq2;
+	public String Par1;
+	public String Par2;
 
 	/**
 	 * Launch the application.
@@ -44,6 +50,8 @@ public class MaxSubtree {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setTitle("SubTree");
+		frame.setBackground(new Color(25, 25, 112));
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

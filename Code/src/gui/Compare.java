@@ -1,10 +1,12 @@
 package gui;
 
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
@@ -13,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import defaut;
 public class Compare {
@@ -48,7 +51,14 @@ public class Compare {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
+		
+		
 		frame = new JFrame();
+		
+		
+		frame.setTitle("CompareTwo");
+		frame.setBackground(new Color(25, 25, 112));
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -61,7 +71,7 @@ public class Compare {
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
-		JLabel lblNewLabel = new JLabel("New label");
+		JLabel lblNewLabel = new JLabel("");
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel.gridheight = 3;
@@ -70,11 +80,23 @@ public class Compare {
 		panel.add(lblNewLabel, gbc_lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Random");
+		btnNewButton.setBackground(new Color( 	0, 51, 51));
+		btnNewButton.setFont(new Font("Arial", Font.BOLD, 14));
+		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String randomrfam = "";
 				try {
 					randomrfam = Brin.RandomRfam();
+					
+					textField_1.setText(randomrfam);
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				}
+				try {
+					randomrfam = Brin.RandomRfam();
+					
+					textField.setText("This is my new text.");
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
 				}
@@ -87,7 +109,7 @@ public class Compare {
 		gbc_btnNewButton.gridy = 2;
 		panel.add(btnNewButton, gbc_btnNewButton);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
+		JLabel lblNewLabel_1 = new JLabel("Rfam1 :");
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_1.gridx = 3;
@@ -104,10 +126,10 @@ public class Compare {
 		panel.add(textField, gbc_textField);
 		textField.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
+		JLabel lblNewLabel_2 = new JLabel("Rfam2 : ");
 		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
 		gbc_lblNewLabel_2.anchor = GridBagConstraints.EAST;
-		gbc_lblNewLabel_2.insets = new Insets(0, 0, 0, 5);
+		gbc_lblNewLabel_2.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_2.gridx = 3;
 		gbc_lblNewLabel_2.gridy = 5;
 		panel.add(lblNewLabel_2, gbc_lblNewLabel_2);
@@ -115,12 +137,56 @@ public class Compare {
 		textField_1 = new JTextField();
 		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
 		gbc_textField_1.gridwidth = 2;
-		gbc_textField_1.insets = new Insets(0, 0, 0, 5);
+		gbc_textField_1.insets = new Insets(0, 0, 5, 5);
 		gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textField_1.gridx = 4;
 		gbc_textField_1.gridy = 5;
 		panel.add(textField_1, gbc_textField_1);
 		textField_1.setColumns(10);
+		
+		JButton btnNewButton1 = new JButton("Start");
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.gridwidth = 2;
+		
+				btnNewButton1.setBackground(new Color( 	0, 51, 51));
+				btnNewButton1.setFont(new Font("Arial", Font.BOLD, 14));
+				btnNewButton1.setForeground(new Color(255, 255, 255));
+				btnNewButton1.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						String pfam1 = textField.getText();
+						String pfam2 = textField_1.getText();
+						
+						Brin test2 = new Brin("","");
+						Brin test1 = new Brin("","");
+						try {
+							test2 = Brin.getDataRfam(pfam1);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+						
+						try {
+							test2 = Brin.getDataRfam(pfam2);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+			        	System.out.println(test2.parenthesage);
+			        	System.out.println(test2.sequence);
+			        
+				    	Noeud arbre1 = new Noeud();
+				    	Noeud arbre2 = new Noeud();
+				    	
+				    	arbre1 = Noeud.convertToTree(test1.parenthesage);
+				    	arbre2 = Noeud.convertToTree(test2.parenthesage);
+				    	
+				    	System.out.println("\n le plus grand sous arbre commun est : ");
+				    	
+				    	System.out.println(Noeud.convertToDashBracket(Noeud.comparaison(arbre1, arbre2)));
+					}
+				});
+				gbc.insets = new Insets(0, 0, 0, 5);
+				gbc.gridx = 4;
+				gbc.gridy = 6;
+				panel.add(btnNewButton1, gbc);
 	}
 
 }

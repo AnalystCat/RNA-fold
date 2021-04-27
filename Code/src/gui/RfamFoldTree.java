@@ -21,6 +21,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Font;
 
 public class RfamFoldTree {
 
@@ -78,6 +79,7 @@ public class RfamFoldTree {
 		ImageIcon im = new ImageIcon("ressource/BigLogo.png");
 		im = scaleImage(im, 250, 250);
 		JLabel image = new JLabel(im);
+		
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.gridwidth = 3;
 		gbc_lblNewLabel.fill = GridBagConstraints.HORIZONTAL;
@@ -87,6 +89,7 @@ public class RfamFoldTree {
 		panel.add(image, gbc_lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Visualiser");
+		btnNewButton.setFont(new Font("Arial", Font.BOLD, 14));
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -98,14 +101,16 @@ public class RfamFoldTree {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBackground(new Color(25, 25, 112));
+		btnNewButton.setBackground(new Color( 	0, 51, 51));
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
+		gbc_btnNewButton.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
 		gbc_btnNewButton.gridx = 1;
 		gbc_btnNewButton.gridy = 1;
 		panel.add(btnNewButton, gbc_btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Comparer");
+		btnNewButton_1.setFont(new Font("Arial", Font.BOLD, 14));
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -113,8 +118,9 @@ public class RfamFoldTree {
 				Compare window = new Compare();
 			}
 		});
-		btnNewButton_1.setBackground(new Color(0, 0, 139));
+		btnNewButton_1.setBackground(new Color(0, 51, 51));
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
+		gbc_btnNewButton_1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnNewButton_1.insets = new Insets(0, 0, 5, 5);
 		gbc_btnNewButton_1.gridx = 1;
 		gbc_btnNewButton_1.gridy = 2;
@@ -122,7 +128,7 @@ public class RfamFoldTree {
 		frmRfamfoldtree.setIconImage(icon); 
 	}
 	
-	public ImageIcon scaleImage(ImageIcon icon, int w, int h)
+	public static ImageIcon scaleImage(ImageIcon icon, int w, int h)
     {
         int nw = icon.getIconWidth();
         int nh = icon.getIconHeight();
