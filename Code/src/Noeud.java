@@ -145,12 +145,11 @@ public class Noeud {
 	public static void main(String[] args) {
 		Noeud racine = new Noeud();
 		Noeud racine2 = new Noeud();
-		Noeud racine3 = new Noeud();
-		Noeud res = new Noeud();
+
 		
 		racine = convertToTree("--(--((--))-)");
 		racine2 = convertToTree("-----(--((--))-)");
-		racine3 = convertToTree("--(--((--))-)");
+		
 		
 		System.out.println(convertToDashBracket(racine));
 		
