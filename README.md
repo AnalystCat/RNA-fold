@@ -3,23 +3,23 @@
 
 # RnaFoldTree
 
-Bonjour et bienvenue a RnaFoldTree, le programme qui vous permet de **visualiser** des **RnaFoldTree** (arbre des structrures secondaire de ARN) des rfam que vous lui soumettez, de pendre un rfam index **aléatoire**, vous montre son dot-format et même de **compare** deux RnaFoldTree !
+Bonjour et bienvenue à RnaFoldTree, le programme qui vous permet de **visualiser** des **RnaFoldTree** (arbre des structrures secondaires d'ARN) des rfam que vous lui soumettez, de prendre un rfam index **aléatoire** pour vous montrer son dot-format et même de **comparer** deux RnaFoldTree !
 
 
 Enfin ça c'est en théorie.
-Actuellement vous trouverez que vous pouvez lui donner un rfam index (ou lui demande de vous en donner un alétoire) et grace à la magie des réquete htmml, vous passer la séquence concesus et le parentasage. Il peut aussi transformer des parentasages en arbres et l'inverse aussi, ainsi que comparer deux arbres entre eux. 
+Actuellement vous trouverez que vous pouvez lui donner un rfam index (ou lui demander de vous en donner un alétoire) et grâce à la magie des requêtes html, il vous passe la séquence consesus et le parenthésage. Il peut également transformer des parenthésages en arbres et l'inverse aussi, ainsi que comparer deux arbres entre eux.
 
-Il possede un ancienne version debut de GUI qui fut abadonnée après que Klaus (alias Julia) est marre d'y passer 6h pour faire marche les jolies layout et les action listener ahahah. 
+Il possède une ancienne version début de GUI qui fut abadonnée après que Klaus (alias Julia) en ait eu marre d'y passer 6h pour faire marcher les jolis layouts et les action listeners ahahah. 
 
-Vous voulez voir ce qui etait prevu à la base ?
+Vous voulez voir ce qui etait prévu à la base ?
 Tenez :
 ![enter image description here](https://github.com/AnalystCat/RNA-fold/blob/main/Code/ressource/maquette.png)
-ça aurait été beau hein ?
+Ca aurait été beau hein ?
 
-bah comme on a passer trop de temps pour rien on a fait un menu au terminal servant de demo des fonctions coder... 
+Bah comme on a passé trop de temps pour rien, on a fait un menu au terminal servant de démo des fonctions codées... 
 
 Voici à quoi ça ressemble : 
 
 
-## Ce qu'on a retenu : **LE GUI AVEC JAVA C PAS FASTOCHE** (et les piles et la récursivité c'est drôle en fait)
+## Ce qu'on a retenu : **LE GUI AVEC JAVA C'EST PAS FASTOCHE** (et les piles et la récursivité c'est drôle en fait)
 
