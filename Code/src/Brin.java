@@ -19,7 +19,7 @@ public class Brin {
      * @return donnee of type Brin
      * @throws IOException
      */
-    public static Brin getDataRfam(String rFamName) throws IOException {
+    public static  Brin getDataRfam(String rFamName) throws IOException {
     	String parenthesage = "";
     	String sequence = "";
     	
@@ -69,7 +69,7 @@ public class Brin {
 		return result;      
 	}
 
-	public static void main(String[] args) {
+	public  void main(String[] args) {
         try {
         	Brin test = getDataRfam("RF00360");
         	System.out.println(test.parenthesage);

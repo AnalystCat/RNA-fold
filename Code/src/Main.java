@@ -59,7 +59,8 @@ public class Main  {
         	System.out.println(test1.sequence);
         	
         	System.out.println("Un Rfam aletoire est : ");
-    		String rfamale = Brin.RandomRfam();
+    		String rfamale;
+			rfamale = Brin.RandomRfam();
     				
     		Brin test2 = Brin.getDataRfam(rfamale);
         	System.out.println(test2.parenthesage);
@@ -87,8 +88,8 @@ public class Main  {
 	    	System.out.println("Donner votre 2e Rfam index : ");
 	    	String rfam2 = myObj.nextLine();
 	    	
-	    	Brin test1 = Brin.getDataRfam(rfam);
-	    	Brin test2 = Brin.getDataRfam(rfam);
+	    	Brin test1 = Brin.getDataRfam(rfam1);
+	    	Brin test2 = Brin.getDataRfam(rfam1);
 	    	
 	    	Noeud arbre1 = new Noeud();
 	    	Noeud arbre2 = new Noeud();
