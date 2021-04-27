@@ -104,7 +104,7 @@ public class Main  {
 	    	
 	    }
 	    
-	    
+	    myObj.close();
 	    
 	    	
 	    }
