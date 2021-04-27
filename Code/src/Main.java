@@ -52,14 +52,16 @@ public class Main  {
 	    	
 	    	System.out.println("Donner votre Rfam index : ");
 	    	String rfam = myObj.nextLine();
-	    	Brin test = getDataRfam(rfam);
-        	System.out.println(test.parenthesage);
-        	System.out.println(test.sequence);
+	    	
+	    	
+	    	Brin test1 = Brin.getDataRfam(rfam);
+        	System.out.println(test1.parenthesage);
+        	System.out.println(test1.sequence);
         	
         	System.out.println("Un Rfam aletoire est : ");
-    		String rfamale = RandomRfam();
+    		String rfamale = Brin.RandomRfam();
     				
-    		Brin test2 = getDataRfam(rfamale);
+    		Brin test2 = Brin.getDataRfam(rfamale);
         	System.out.println(test2.parenthesage);
         	System.out.println(test2.sequence);
         	
@@ -67,12 +69,12 @@ public class Main  {
 	    	Noeud arbre1 = new Noeud();
 	    	Noeud arbre2 = new Noeud();
 	    	
-	    	arbre1 = convertToTree(test1);
-	    	arbre2 = convertToTree(test2);
+	    	arbre1 = Noeud.convertToTree(test1.parenthesage);
+	    	arbre2 = Noeud.convertToTree(test2.parenthesage);
 	    	
 	    	System.out.println("\n le plus grand sous arbre commun est : ");
 	    	
-	    	System.out.println(convertToDashBracket(comparaison(arbre1, arbre2)));
+	    	System.out.println(Noeud.convertToDashBracket(Noeud.comparaison(arbre1, arbre2)));
         	
         	
 	    	
@@ -85,18 +87,18 @@ public class Main  {
 	    	System.out.println("Donner votre 2e Rfam index : ");
 	    	String rfam2 = myObj.nextLine();
 	    	
-	    	Brin test1 = getDataRfam(rfam);
-	    	Brin test2 = getDataRfam(rfam);
+	    	Brin test1 = Brin.getDataRfam(rfam);
+	    	Brin test2 = Brin.getDataRfam(rfam);
 	    	
 	    	Noeud arbre1 = new Noeud();
 	    	Noeud arbre2 = new Noeud();
 	    	
-	    	arbre1 = convertToTree(test1);
-	    	arbre2 = convertToTree(test2);
+	    	arbre1 = Noeud.convertToTree(test1.parenthesage);
+	    	arbre2 = Noeud.convertToTree(test2.parenthesage);
 	    	
 	    	System.out.println("le plus grand sous arbre commun est : ");
 	    	
-	    	System.out.println(convertToDashBracket(comparaison(arbre1, arbre2)));
+	    	System.out.println(Noeud.convertToDashBracket(Noeud.comparaison(arbre1, arbre2)));
 
 	    	
 	    }
