@@ -9,7 +9,7 @@ Bonjour et bienvenue à RnaFoldTree, le programme qui vous permet de **visualise
 Enfin ça c'est en théorie.
 Actuellement vous trouverez que vous pouvez lui donner un rfam index (ou lui demander de vous en donner un alétoire) et grâce à la magie des requêtes html, il vous passe la séquence consesus et le parenthésage. Il peut également transformer des parenthésages en arbres et l'inverse aussi, ainsi que comparer deux arbres entre eux.
 
-Il possède une ancienne version début de GUI qui fut abandonnée après que Klaus (alias Julia) en ait eu marre d'y passer 6h pour faire marcher les action listeners ahahah. 
+Il possède une ancienne version début de GUI qui fut abandonnée après que Klaus  en ait eu marre d'y passer 6h pour faire marcher les action listeners ahahah. 
 
 Vous voulez voir ce qui etait prévu à la base ?
 Tenez :
